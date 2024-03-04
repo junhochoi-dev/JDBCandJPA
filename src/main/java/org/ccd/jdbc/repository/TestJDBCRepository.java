@@ -18,7 +18,9 @@ public class TestJDBCRepository {
     }
 
     public void saveAll(List<Test> testList) {
-        String sql = "INSERT INTO test (column1, column2, ...) VALUES (?, ?, ...)";
+        String sql = "INSERT INTO " +
+                "test (value1, value2, value3, value4, value5) " +
+                "VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.batchUpdate(sql, testList, testList.size(),
                 (ps, test) ->  {
                     ps.setString(1, test.getValue1());
@@ -28,5 +30,4 @@ public class TestJDBCRepository {
                     ps.setString(5, test.getValue5());
                 });
     }
-
 }

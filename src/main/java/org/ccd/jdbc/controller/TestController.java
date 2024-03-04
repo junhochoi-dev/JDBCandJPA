@@ -13,7 +13,7 @@ public class TestController {
 
     @GetMapping("/test/jdbc")
     public ResponseEntity<String> testJDBC() {
-
+        testService.testJDBC();
         return ResponseEntity.ok("JDBC 테스트 성공");
     }
 
